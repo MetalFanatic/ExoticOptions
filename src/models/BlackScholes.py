@@ -1,4 +1,3 @@
-from statistics import mode
 from typing import Union
 from math import log, sqrt, exp
 from src.distribution.standard_normal_dist import normcdf

@@ -55,4 +55,4 @@ class BlackScholesMerton(BlackSholes):
     def __repr__(self) -> str:
         return f"s: {self.s}\tk: {self.k}\tq: {self.q}\tr: {self.r}\ttau: {self.tau}\td1: {self.d1}\td2: {self.d2}"
 
-model = BlackScholesMerton(100, 105, 0.012,0.03,0.21, 0.45)
+
