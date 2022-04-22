@@ -5,3 +5,5 @@ def test(x):
 #git commit -m "Created a test function"
 #git push -u origin main
 #git pull
+
+#pip freeze > requirements.txt
