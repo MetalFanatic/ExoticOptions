@@ -1,6 +1,5 @@
 from math import sqrt, pi, exp, erf
 from typing import Union
-from unicodedata import numeric
 
 numeric = Union[int, float]
 

@@ -1,4 +1,4 @@
-from BlackScholes import BlackScholes
+from src.models.BlackScholes import BlackScholes
 from typing import Union
 from math import log, sqrt, exp
 from src.distribution.standard_normal_dist import normcdf
@@ -55,7 +55,8 @@ class BlackScholesMerton(BlackScholes):
     def _price(self):
         pass
         #TODO: this function
-        #I want to have it a lazy reference to get_put, get_call based on input criteria in mod that we'll build in later. We don't want to call get_call, rather price("c", ...) where "c" would designate that we mean to get_call
+        #I want to have it a lazy reference to get_put, get_call based on input criteria in mod that we'll build in later. We don't want to call get_call,
+        # rather price("c", ...) where "c" would designate that we mean to get_call
 
 
 #code checking  
