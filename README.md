@@ -1,5 +1,3 @@
-# Untitled
-
 # ExoticOptions
 
 ### Upcoming Implementations

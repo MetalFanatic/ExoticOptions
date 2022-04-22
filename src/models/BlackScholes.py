@@ -5,7 +5,7 @@ from src.distribution.standard_normal_dist import normcdf
 
 numeric = Union[int, float]
 
-class BlackSholes:
+class BlackScholes:
     """
     s: spot - Underlying stock price 
     k: Strike price
