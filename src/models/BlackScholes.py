@@ -42,7 +42,7 @@ class BlackSholes:
         return d1 - vol * sqrt(tau)
 
 
-    def call(self) -> float:
+    def get_call(self) -> float:
         s = self.s
         k = self.k
         r = self.r
@@ -50,9 +50,10 @@ class BlackSholes:
         d1 = self.d1
         d2 = self.d2
         return s * normcdf(d1) - k * exp(-r * tau) * normcdf(d2)
+            
 
 
-    def put(self) -> float:
+    def get_put(self) -> float:
         s = self.s
         k = self.k
         r = self.r
@@ -62,4 +63,4 @@ class BlackSholes:
         return -s * normcdf(-d1) + k * exp(-r * tau) * normcdf(-d2)
 
 
-model = BlackSholes(100, 105, 0.012, 0.21, 0.45)
+
