@@ -71,7 +71,14 @@ class BSM_Greeks(BlackScholes):
     def get_vomma(self): ...
 
 
-    def get_veta(self): ...
+    def get_veta(self):
+		S = self.S
+		q = self.q
+		vol = self.vol
+		tau = self.tau
+		d1 = self.d1
+		d2 = self.d2
+		S*exp(-q*tau)*normpdf(d1)*sqrt(tau)*(d1*d2)/vol
 
     # uses math I don't know how to derive
     def get_vera(self): ...
@@ -98,50 +105,6 @@ class BSM_Greeks(BlackScholes):
     def get_dual_gamma(self): ...
 
 
-    def call_epsilone(self):
-        s = self.s
-        tau = self.tau
-        r = self.r
-        q = self.q
-        d1 = self.d1
-        return -s * tau * exp(-q * tau) * normcdf(d1)
-
-
-    def put_epsilone(self):
-        s= self.s
-        tau = self.tau
-        q = self.q
-        d1 = self.d1
-        
-        # S*τ*exp(-q*τ)*Φ(-d1)
-        return s * tau * exp(-q * tau) * normcdf(-d1)
-    
-
-    def call_delta(self):
-        q = self.q
-        tau = self.tau
-        d1 = self.d1
-        # exp(-q*τ)*Φ(d1)
-        return exp(-q * tau) * normcdf(d1)
-        
-
-    def put_delta(self):
-        q = self.q
-        tau = self.tau
-        d1 = self.d1
-        # exp(-q*τ)*Φ(d1
-        return exp(-q * tau) * normcdf(d1)
-    
-    
-    def get_action(action:str):
-        match action:
-            case "put":
-                ...
-            case "call":
-                ...
-            case _:
-                raise ValueError()
-
 """
     vol = sigma
     
@@ -151,7 +114,7 @@ class BSM_Greeks(BlackScholes):
     put𝑉 = putPremium=max(0,K*exp(-rf*τ)*Φ(-d2)-S*exp(-q*τ)*Φ(-d1));
 
     callDeltaΔ = exp(-q*τ)*Φ(d1)
-    putDeltaΔ = exp(-q*τ)*(Φ(d1)-1)
+    putDeltaΔ = -exp(-q*τ)*Φ(-d1)
 
     callThetaθ = 1/365*(-(S*σ*exp(-q*τ)/(2*√τ)*1/(√(2*π))*exp(-d1^2/2))
         -rf*K*exp(-rf*τ)*Φ(d2)+q*S*exp(-q*τ)*Φ(d1))
