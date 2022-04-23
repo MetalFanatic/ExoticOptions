@@ -11,7 +11,7 @@ numeric = Union[int, float]
 
 # TypeError: metaclass conflict: the metaclass of a derived class must be a (non-strict) subclass of the metaclasses of all its bases
 @dataclass
-class BSM_Greeks(BlackScholesMerton, BlackScholes):
+class BSM_Greeks(BlackScholes):
     def __init__(
             self, s: numeric = None, k=None, r: numeric = None, q=0, vol: numeric = None, tau: numeric = None, get_d1=None, get_d2: numeric = None, get_call: numeric = None, get_put: numeric = None):
         self.s = s or self.s
@@ -131,10 +131,22 @@ class BSM_Greeks(BlackScholesMerton, BlackScholes):
         d1 = self.d1
         # exp(-q*τ)*Φ(d1
         return exp(-q * tau) * normcdf(d1)
-
+    
+    
+    def get_action(action:str):
+        match action:
+            case "put":
+                ...
+            case "call":
+                ...
+            case _:
+                raise ValueError()
 
 """
-https://en.wikipedia.org/wiki/Greeks_(finance)
+    vol = sigma
+    
+    https://en.wikipedia.org/wiki/Greeks_(finance)
+    
     call𝑉 = callPremium=max(0,S*exp(-q*τ)*Φ(d1)-K*exp(-rf*τ)*Φ(d2));
     put𝑉 = putPremium=max(0,K*exp(-rf*τ)*Φ(-d2)-S*exp(-q*τ)*Φ(-d1));
 
