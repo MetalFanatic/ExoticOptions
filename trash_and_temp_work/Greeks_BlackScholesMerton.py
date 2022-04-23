@@ -133,14 +133,6 @@ class BSM_Greeks(BlackScholes):
         return exp(-q * tau) * normcdf(d1)
     
     
-    def get_action(action:str):
-        match action:
-            case "put":
-                ...
-            case "call":
-                ...
-            case _:
-                raise ValueError()
 
 """
     vol = sigma
