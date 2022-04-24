@@ -31,7 +31,7 @@ class BinomialOptionPricingModel():
         right = self.right
         opt_type = self.opt_type
 
-        if opt_type == European:
+        if opt_type == "European":
             dt = tau / nsteps
             up = exp(vol*sqrt(tau))
             down = up**(-1)
@@ -43,11 +43,11 @@ class BinomialOptionPricingModel():
                 tp = np.append(tp, right*(s-k),0) * exp((2*i-nsteps)*vol*sqrt(dt))
             tp = max(tp)
             for i in range(0,range(nsteps,0,-1)):
-                a = right*(s-k), 0) * exp((2*i-nsteps)*vol*sqrt(dt)
-                b = = (q2 * tp[i+1] + p * tp[i+2]) / yld
+                a = right*(s-k) * exp((2*i-nsteps)*vol*sqrt(dt))
+                b = (q2 * tp[i+1] + p * tp[i+2]) / yld
                 tp[i+1] = max(a,b)
-            return z[1]
-        elif opt_type == American: ...
+            return tp[1]
+        elif opt_type == "American": ...
 
 
 
