@@ -1,3 +1,5 @@
+![GitHub](https://img.shields.io/github/license/MetalFanatic/ExoticOptions)    ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/MetalFanatic/ExoticOptions/main)
+
 # ExoticOptions
 
 ### Upcoming Implementations
