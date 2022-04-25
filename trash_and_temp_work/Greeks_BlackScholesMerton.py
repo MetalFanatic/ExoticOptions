@@ -53,7 +53,6 @@ class BSM_Greeks(BlackScholes):
         tau = self.tau
         d1 = self.d1
         d2 = self.d2
-        # TODO sigma?
         return -exp(-q * tau) * normcdf(d1) * d2 / vol
 
     def get_charm(self): ...
@@ -105,8 +104,8 @@ print(model.get_delta(1))
     call𝑉 = callPremium=max(0,S*exp(-q*τ)*Φ(d1)-K*exp(-rf*τ)*Φ(d2));
     put𝑉 = putPremium=max(0,K*exp(-rf*τ)*Φ(-d2)-S*exp(-q*τ)*Φ(-d1));
 
-    callDeltaΔ = exp(-q*τ)*Φ(d1)
-    putDeltaΔ = -exp(-q*τ)*Φ(-d1)
+    .callDeltaΔ = exp(-q*τ)*Φ(d1)
+    .putDeltaΔ = -exp(-q*τ)*Φ(-d1)
 
     callThetaθ = 1/365*(-(S*σ*exp(-q*τ)/(2*√τ)*1/(√(2*π))*exp(-d1^2/2))
         -rf*K*exp(-rf*τ)*Φ(d2)+q*S*exp(-q*τ)*Φ(d1))
