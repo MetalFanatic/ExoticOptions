@@ -34,7 +34,7 @@ class BinomialOptionPricingModel(ContinuousModel):
             for i in range(nsteps):
                 tp = np.append(tp, right * (s - k), 0) * exp((2 * i - nsteps) * vol * sqrt(dt))
             tp = max(tp)
-            for i in range(range(nsteps,0,-1)):
+            for i in range(range(nsteps, 0, -1)):
                 a = right * (s - k) * exp((2 * i - nsteps)*vol * sqrt(dt))
                 b = (q2 * tp[i + 1] + p * tp[i + 2]) / yld
                 tp[i + 1] = max(a, b)

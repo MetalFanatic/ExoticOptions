@@ -11,4 +11,4 @@ def normpdf(x: numeric, sig=1.0, mu=0) -> float:
 
 def normcdf(x: numeric, sig=1.0, mu=0) -> float:
     """Phi"""
-    return 1/2*(1+erf((x- mu)/(sig * sqrt(2))))
+    return 1/2*(1+erf((x - mu)/(sig * sqrt(2))))
